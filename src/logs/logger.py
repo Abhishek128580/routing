@@ -7,12 +7,13 @@ LOG_FILE = "src/logs/routing_logs.csv"
 def log_routing(
     query,
     domain,
+    bart_confidence,
     complexity,
     complexity_score,
     latency,
     load,
-    route,
-    processing_time
+    route_score,
+    route
 ):
 
     file_exists = os.path.exists(LOG_FILE)
@@ -29,24 +30,26 @@ def log_routing(
         if not file_exists:
 
             writer.writerow([
-               "query",
+           "query",
                 "domain",
+                "bart_confidence",
                 "complexity",
                 "complexity_score",
                 "latency",
                 "load",
-                "route",
-                "processing_time"
+                "route_score",
+                "route"
 
             ])
 
         writer.writerow([
-           query,
+            query,
             domain,
+            bart_confidence,
             complexity,
             complexity_score,
             latency,
             load,
-            route,
-            processing_time
+            route_score,
+            route
         ])

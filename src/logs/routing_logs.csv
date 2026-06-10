@@ -1,51 +1,51 @@
-query,domain,complexity,complexity_score,latency,load,route,processing_time
-Explain recursion in Python,software engineering and programming,low,4,79,28,device,129
-What is dynamic programming?,software engineering and programming,low,4,103,66,device,153
-Implement binary search in C++,software engineering and programming,low,5,385,34,device,435
-Difference between stack and queue,software engineering and programming,low,5,215,79,device,265
-Explain object oriented programming,software engineering and programming,low,4,207,94,cloud,407
-What is a linked list?,law and legal matters,low,5,479,38,device,529
-How does a hash table work?,mathematics and statistics,low,6,441,30,device,491
-Explain multithreading in Java,software engineering and programming,low,4,211,100,cloud,411
-What is time complexity?,general trivia and history,low,4,142,56,device,192
-Difference between SQL and NoSQL,software engineering and programming,low,5,103,53,device,153
-What are symptoms of diabetes?,medicine and healthcare,low,5,382,16,device,432
-How is hypertension treated?,medicine and healthcare,low,4,431,10,device,481
-Explain insulin resistance,medicine and healthcare,low,3,277,42,device,327
-What causes asthma?,medicine and healthcare,low,3,369,31,device,419
-Symptoms of dengue fever,medicine and healthcare,low,4,491,24,device,541
-How does the human heart work?,medicine and healthcare,low,6,413,34,device,463
-What is blood pressure?,medicine and healthcare,low,4,407,79,device,457
-Explain kidney failure,medicine and healthcare,low,3,264,76,device,314
-How is malaria diagnosed?,medicine and healthcare,low,4,151,77,device,201
-What are the causes of obesity?,medicine and healthcare,low,6,262,100,cloud,462
-What is breach of contract?,law and legal matters,low,5,451,46,device,501
-Explain constitutional law,law and legal matters,low,3,299,85,device,349
-What is intellectual property?,law and legal matters,low,4,241,81,device,291
-Difference between civil and criminal law,law and legal matters,low,6,138,70,device,188
-What is a legal notice?,law and legal matters,low,5,422,90,cloud,622
-Explain consumer protection law,law and legal matters,low,4,473,22,device,523
-What is a lawsuit?,law and legal matters,low,4,371,61,device,421
-What are fundamental rights?,law and legal matters,low,4,495,37,device,545
-Explain contract law basics,law and legal matters,low,4,123,11,device,173
-What is cyber law?,law and legal matters,low,4,390,48,device,440
-Solve x^2 + 5x + 6 = 0,mathematics and statistics,low,8,290,97,cloud,490
-What is Bayes theorem?,mathematics and statistics,low,4,164,49,device,214
-Explain Pythagorean theorem,mathematics and statistics,low,3,337,93,cloud,537
-How do matrices work?,mathematics and statistics,low,4,333,90,cloud,533
-What is integration in calculus?,mathematics and statistics,low,5,75,56,device,125
-Why do earthquakes occur?,natural science and physics,low,4,426,52,device,476
-Explain photosynthesis,natural science and physics,low,2,273,80,device,323
-How do black holes form?,natural science and physics,low,5,231,89,cloud,431
-What causes climate change?,natural science and physics,low,4,205,62,device,255
-What is Newton's second law?,law and legal matters,low,5,446,49,device,496
-How does compound interest work?,business finance and economics,low,5,320,18,device,370
-What is a stock market index?,business finance and economics,low,6,303,70,device,353
-Explain inflation,business finance and economics,low,2,452,55,device,502
-What is mutual fund investing?,business finance and economics,low,5,448,41,device,498
-Difference between revenue and profit,business finance and economics,low,5,150,88,cloud,350
-Who invented the telephone?,general trivia and history,low,4,172,77,device,222
-What is the capital of Japan?,general trivia and history,low,6,183,78,device,233
-Who was Albert Einstein?,natural science and physics,low,4,74,95,cloud,274
-What is the tallest mountain?,general trivia and history,low,5,365,65,device,415
-When did World War II end?,general trivia and history,low,6,141,100,cloud,341
+query,domain,bart_confidence,complexity,complexity_score,latency,load,route_score,route
+Explain recursion in Python,software engineering and programming,0.8933,medium,51.87,360,57,95.9,edge
+What is dynamic programming?,software engineering and programming,0.7811,medium,54.62,118,22,74.93,edge
+Implement binary search in C++,software engineering and programming,0.9375,high,73.75,422,32,113.82,cloud
+Difference between stack and queue,software engineering and programming,0.4773,medium,44.55,45,96,80.37,edge
+Explain object oriented programming,software engineering and programming,0.9243,medium,52.49,110,63,86.13,edge
+What is a linked list?,law and legal matters,0.2416,low,34.83,392,13,60.75,edge
+How does a hash table work?,mathematics and statistics,0.4105,medium,54.21,368,21,83.02,edge
+Explain multithreading in Java,software engineering and programming,0.9526,medium,53.05,180,20,77.58,edge
+What is time complexity?,general trivia and history,0.2813,low,19.63,329,97,67.99,edge
+Difference between SQL and NoSQL,software engineering and programming,0.5535,medium,46.07,308,91,94.31,edge
+What are symptoms of diabetes?,medicine and healthcare,0.7588,medium,45.18,377,39,83.32,edge
+How is hypertension treated?,medicine and healthcare,0.8663,medium,56.33,330,62,100.09,cloud
+Explain insulin resistance,medicine and healthcare,0.7456,low,37.91,139,14,56.52,device
+What causes asthma?,medicine and healthcare,0.6069,medium,40.14,397,41,78.36,edge
+Symptoms of dengue fever,medicine and healthcare,0.6488,low,36.98,98,61,66.67,edge
+How does the human heart work?,medicine and healthcare,0.6281,medium,53.56,308,57,92.34,edge
+What is blood pressure?,medicine and healthcare,0.5852,medium,40.7,481,96,99.4,edge
+Explain kidney failure,medicine and healthcare,0.7638,low,38.28,402,37,77.12,edge
+How is malaria diagnosed?,medicine and healthcare,0.8257,medium,55.51,370,69,102.97,cloud
+What are the causes of obesity?,medicine and healthcare,0.2551,low,36.1,359,25,64.1,edge
+What is breach of contract?,law and legal matters,0.8516,medium,47.03,393,94,103.4,cloud
+Explain constitutional law,law and legal matters,0.9824,medium,42.65,251,20,71.02,edge
+What is intellectual property?,law and legal matters,0.6429,medium,41.86,330,68,85.19,edge
+Difference between civil and criminal law,law and legal matters,0.9664,medium,45.33,82,97,88.19,edge
+What is a legal notice?,law and legal matters,0.8222,medium,46.44,82,34,68.96,edge
+Explain consumer protection law,law and legal matters,0.9673,medium,43.35,294,86,93.52,edge
+What is a lawsuit?,law and legal matters,0.9459,medium,47.92,110,17,67.98,edge
+What are fundamental rights?,law and legal matters,0.6867,medium,42.73,270,53,79.0,edge
+Explain contract law basics,law and legal matters,0.9841,medium,43.68,307,51,84.17,edge
+What is cyber law?,law and legal matters,0.8226,medium,45.45,69,40,69.13,edge
+Solve x^2 + 5x + 6 = 0,mathematics and statistics,0.6466,medium,45.93,313,96,96.85,edge
+What is Bayes theorem?,mathematics and statistics,0.5041,medium,44.08,455,42,84.47,edge
+Explain Pythagorean theorem,mathematics and statistics,0.7362,medium,42.72,238,76,84.78,edge
+How do matrices work?,mathematics and statistics,0.5043,medium,54.09,208,20,75.53,edge
+What is integration in calculus?,mathematics and statistics,0.432,medium,43.64,280,89,88.66,edge
+Why do earthquakes occur?,natural science and physics,0.7412,medium,48.82,219,32,76.78,edge
+Explain photosynthesis,natural science and physics,0.6536,low,35.07,181,26,58.46,device
+How do black holes form?,natural science and physics,0.8436,medium,56.87,197,94,103.36,cloud
+What causes climate change?,natural science and physics,0.3829,low,36.66,342,71,78.89,edge
+What is Newton's second law?,law and legal matters,0.5755,medium,41.51,479,66,91.02,edge
+How does compound interest work?,business finance and economics,0.3044,medium,41.09,337,43,73.88,edge
+What is a stock market index?,business finance and economics,0.3463,low,32.93,467,37,70.84,edge
+Explain inflation,business finance and economics,0.4591,low,26.18,485,61,73.32,edge
+What is mutual fund investing?,business finance and economics,0.3713,low,32.43,389,93,83.49,edge
+Difference between revenue and profit,business finance and economics,0.6074,low,32.15,431,51,75.07,edge
+Who invented the telephone?,general trivia and history,0.7685,low,29.37,458,97,89.06,edge
+What is the capital of Japan?,general trivia and history,0.5623,low,27.25,123,39,50.72,device
+Who was Albert Einstein?,natural science and physics,0.552,medium,40.04,449,32,77.61,edge
+What is the tallest mountain?,general trivia and history,0.4769,low,24.54,148,43,49.61,device
+When did World War II end?,general trivia and history,0.5907,low,27.81,91,14,42.47,device
