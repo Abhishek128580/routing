@@ -8,8 +8,11 @@ def log_routing(
     query,
     domain,
     complexity,
-    network,
-    route
+    complexity_score,
+    latency,
+    load,
+    route,
+    processing_time
 ):
 
     file_exists = os.path.exists(LOG_FILE)
@@ -26,17 +29,24 @@ def log_routing(
         if not file_exists:
 
             writer.writerow([
-                "query",
+               "query",
                 "domain",
                 "complexity",
-                "network",
-                "route"
+                "complexity_score",
+                "latency",
+                "load",
+                "route",
+                "processing_time"
+
             ])
 
         writer.writerow([
-            query,
+           query,
             domain,
             complexity,
-            network,
-            route
+            complexity_score,
+            latency,
+            load,
+            route,
+            processing_time
         ])
