@@ -1,75 +1,20 @@
-# TECHNICAL_KEYWORDS = [
-#     "algorithm",
-#     "database",
-#     "distributed",
-#     "microservice",
-#     "kubernetes",
-#     "docker",
-#     "network",
-#     "machine learning",
-#     "deep learning",
-#     "neural network",
-#     "compiler",
-#     "operating system",
-#     "dijkstra",
-#     "graph",
-#     "optimization"
-# ]
+from transformers import pipeline
 
+print("Loading Complexity Classifier...")
 
-# def calculate_complexity(query):
+complexity_classifier = pipeline(
+    "zero-shot-classification",
+    model="facebook/bart-large-mnli"
+)
 
-#     query_lower = query.lower()
+print("Complexity Classifier Ready")
 
-#     score = 0
-
-#     score += len(query.split())
-
-#     for keyword in TECHNICAL_KEYWORDS:
-
-#         if keyword in query_lower:
-#             score += 5
-
-#     if score < 15:
-#         complexity = "low"
-
-#     elif score < 30:
-#         complexity = "medium"
-
-#     else:
-#         complexity = "high"
-
-#     return {
-#         "score": score,
-#         "complexity": complexity
-#     }
-
-QUESTION_TYPES = {
-    "what": 5,
-    "who": 5,
-    "when": 5,
-    "where": 5,
-    "why": 10,
-    "how": 15,
-    "implement": 20,
-    "design": 30,
-    "build": 30,
-    "develop": 30,
-    "optimize": 25,
-    "analyze": 25,
-    "compare": 20
-}
-
-
-DOMAIN_WEIGHTS = {
-    "software engineering and programming": 30,
-    "medicine and healthcare": 20,
-    "law and legal matters": 20,
-    "mathematics and statistics": 25,
-    "natural science and physics": 20,
-    "business finance and economics": 15,
-    "general trivia and history": 5
-}
+COMPLEXITY_LABELS = [
+    "simple factual query",
+    "technical explanation",
+    "system design problem",
+    "research level problem"
+]
 
 
 def calculate_complexity(
@@ -78,36 +23,99 @@ def calculate_complexity(
     confidence
 ):
 
-    score = 0
-
-    score += len(query.split())
-
     query_lower = query.lower()
+    word_count = len(query.split())
 
-    for keyword, value in QUESTION_TYPES.items():
+    # --------------------
+    # Rule Override Layer
+    # --------------------
 
-        if keyword in query_lower:
-
-            score += value
-            break
-
-    score += DOMAIN_WEIGHTS.get(
-        domain,
-        10
+    factual_starters = (
+        "what",
+        "who",
+        "when",
+        "where"
     )
 
-    score += confidence * 20
+    if (
+        word_count <= 4 and
+        query_lower.startswith(factual_starters)
+    ):
 
-    if score < 40:
+        return {
+            "complexity": "low",
+            "score": 20,
+            "predicted_label":
+            "simple factual query",
+            "semantic_confidence": 1.0
+        }
+
+    # --------------------
+    # Semantic Layer
+    # --------------------
+
+    result = complexity_classifier(
+        query,
+        COMPLEXITY_LABELS
+    )
+
+    predicted = result["labels"][0]
+
+    semantic_score = result["scores"][0]
+
+    if predicted == "simple factual query":
+
         complexity = "low"
 
-    elif score < 70:
+        complexity_score = (
+            25 +
+            semantic_score * 10
+        )
+
+    elif predicted == "technical explanation":
+
         complexity = "medium"
 
-    else:
+        complexity_score = (
+            50 +
+            semantic_score * 15
+        )
+
+    elif predicted == "system design problem":
+
         complexity = "high"
 
+        complexity_score = (
+            85 +
+            semantic_score * 15
+        )
+
+    else:
+
+        complexity = "high"
+
+        complexity_score = (
+            95 +
+            semantic_score * 20
+        )
+
     return {
-        "score": round(score, 2),
-        "complexity": complexity
+
+        "complexity":
+        complexity,
+
+        "score":
+        round(
+            complexity_score,
+            2
+        ),
+
+        "predicted_label":
+        predicted,
+
+        "semantic_confidence":
+        round(
+            semantic_score,
+            4
+        )
     }

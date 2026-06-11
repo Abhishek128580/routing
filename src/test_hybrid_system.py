@@ -68,8 +68,22 @@ print(
 
 print("\nComplexity:")
 print(
+    "\nSemantic Label:"
+)
+
+print(
     complexity_info[
-        "complexity"
+        "predicted_label"
+    ]
+)
+
+print(
+    "\nSemantic Confidence:"
+)
+
+print(
+    complexity_info[
+        "semantic_confidence"
     ]
 )
 

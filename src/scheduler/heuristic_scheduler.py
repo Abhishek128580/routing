@@ -17,13 +17,19 @@ def calculate_route_score(
 
     return round(route_score, 2)
 
-def route_query(route_score):
 
-    if route_score < 55:
+def route_query(
+    route_score
+):
+
+    if route_score < 45:
+
         return "device"
 
     elif route_score < 85:
+
         return "edge"
 
     else:
+
         return "cloud"

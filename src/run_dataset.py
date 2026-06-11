@@ -164,7 +164,8 @@ for _, row in df.iterrows():
             "complexity"
         ],
         complexity_info[
-            "score"
+             "predicted_label"
+             "semantic_confidence"
         ],
         network["latency"],
         network["load"],

@@ -1,0 +1,13 @@
+query,expected_route
+What is AI?,device
+What is recursion?,device
+What is diabetes?,device
+Capital of India?,device
+Explain linked list,edge
+Explain binary search,edge
+Difference between SQL and NoSQL,edge
+Explain OOP concepts,edge
+Design a distributed stock exchange using Kafka Redis CQRS and Event Sourcing,cloud
+Design a scalable Uber architecture,cloud
+Implement Raft consensus with leader election,cloud
+Build a fault tolerant payment gateway,cloud
