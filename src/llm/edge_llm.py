@@ -1,12 +1,18 @@
-from urllib import response
-
-from transformers import pipeline
+from transformers import (
+    AutoTokenizer,
+    AutoModelForSeq2SeqLM
+)
 
 print("Loading Flan-T5...")
 
-generator = pipeline(
-    "text-generation",
-    model="google/flan-t5-base"
+model_name = "google/flan-t5-base"
+
+tokenizer = AutoTokenizer.from_pretrained(
+    model_name
+)
+
+model = AutoModelForSeq2SeqLM.from_pretrained(
+    model_name
 )
 
 print("Edge LLM Ready")
@@ -14,29 +20,21 @@ print("Edge LLM Ready")
 
 def generate_response(query):
 
-    result = generator(
+    inputs = tokenizer(
         query,
-        max_new_tokens=40,
-        do_sample=True,
-        temperature=0.7
+        return_tensors="pt"
     )
 
-    response = result[0]["generated_text"]
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=50
+    )
 
-    # temporary confidence estimate
-
-    response_words = len(response.split())
-    query_words = len(query.split())
-
-    confidence = min(
-        (response_words / max(query_words, 1)) / 5,
-        1.0
+    response = tokenizer.decode(
+        outputs[0],
+        skip_special_tokens=True
     )
 
     return {
-        "response": response,
-        "confidence": round(
-            confidence,
-            2
-        )
+        "response": response
     }
